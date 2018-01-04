@@ -601,7 +601,7 @@ UNLOCK TABLES;
 
 DROP TABLE `champion_type_season`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`xhug`@`%` SQL SECURITY DEFINER VIEW `champion_type_season`
+CREATE ALGORITHM=UNDEFINED DEFINER=`QingL`@`%` SQL SECURITY DEFINER VIEW `champion_type_season`
 AS SELECT
    `champions`.`champ_type` AS `type`,
    `games`.`season` AS `season`,count(`champions`.`champ_type`) AS `picked`
@@ -613,7 +613,7 @@ FROM ((`champions` join `matchup`) join `games`) where ((`matchup`.`champion` = 
 
 DROP TABLE `popular_teams`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`xhug`@`%` SQL SECURITY DEFINER VIEW `popular_teams`
+CREATE ALGORITHM=UNDEFINED DEFINER=`QingL`@`%` SQL SECURITY DEFINER VIEW `popular_teams`
 AS SELECT
    `fanclubs`.`team_name` AS `team_name`,sum(`fanclubs`.`population`) AS `fans`
 FROM `fanclubs` group by `fanclubs`.`team_name` having (sum(`fanclubs`.`population`) >= 1000000) order by sum(`fanclubs`.`population`) desc;
